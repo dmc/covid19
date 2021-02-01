@@ -128,9 +128,6 @@ const config: NuxtConfig = {
       families: ['Roboto:100,300,400,500,700,900&display=swap'],
     },
   },
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // .env.production などに設定してください。
-  },
   /*
    ** @nuxtjs/gtm config
    */
