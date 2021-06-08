@@ -70,7 +70,7 @@ Tokyo Covid-19 response site contributors
 | ufoo68 | [@ufoo68](https://github.com/ufoo68) | | |
 | 4geru koichi uchinishi | [@4geru](https://github.com/4geru) | | |
 | Francis | [@francisfuzz](https://github.com/francisfuzz) | | |
-| KatsuyaAkasaka | | | |
+| sakas1231 | [@KatsuyaAkasaka](https://github.com/KatsuyaAkasaka) | | Coding |
 | Keiichi Watanabe | [@keiichiw](https://github.com/keiichiw) | | |
 | Kentaro Ohkouchi | [@nanasess](https://github.com/nanasess) | | |
 | Masatoshi Hanai | [@hanahana0201](https://github.com/hanahana0201) | | |
@@ -178,6 +178,9 @@ Tokyo Covid-19 response site contributors
 | Shoichiro Kawauchi | [@lacrosse91](https://github.com/lacrosse91) | | Coding |
 | [Yukiya Nagae](https://yukiya.me)  | [@yukiyalien](https://github.com/yukiyalien) | [@yukiyalien](https://twitter.com/yukiyalien) | Kaizen |
 | A_Certain_Shawn | [@certainShawn](https://github.com/certainShawn) | | Translation (JA-> CN) |
+| MATSUNO Tomoo | [@tmatsuno](https://github.com/tmatsuno) | | Frontend / TMG-DevRel |
+| Daichi Hata (Atria) | [@Atria64](https://github.com/Atria64) | [@AtriaSoft](https://twitter.com/AtriaSoft) | Coding |
+| [Meiryo7743](https://meiryo7743.net) | [@Meiryo7743](https://github.com/Meiryo7743) | | Coding |
 
 ご協力に感謝です！！！
 

@@ -1,5 +1,6 @@
 import { NuxtConfig } from '@nuxt/types'
 
+// eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
 const environment = process.env.NODE_ENV || 'development'
 
@@ -59,8 +60,7 @@ const config: NuxtConfig = {
     ],
     script: [
       {
-        src:
-          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
         defer: true,
       },
     ],
@@ -92,7 +92,18 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-    '@nuxt/typescript-build',
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: {
+          async: true,
+          typescript: {
+            enable: true,
+            memoryLimit: 4096,
+          },
+        },
+      },
+    ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
@@ -151,6 +162,18 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    babel: {
+      presets() {
+        return [
+          [
+            '@nuxt/babel-preset-app',
+            {
+              corejs: { version: '3.11' },
+            },
+          ],
+        ]
+      },
+    },
     postcss: {
       preset: {
         autoprefixer: {
@@ -172,7 +195,7 @@ const config: NuxtConfig = {
       './node_modules/vue-spinner/src/ScaleLoader.vue',
     ],
     whitelist: ['DataCard', 'GraphLegend'],
-    whitelistPatterns: [/(col|row)/],
+    whitelistPatterns: [/(col|row|v-window)/],
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',
@@ -209,11 +232,23 @@ const config: NuxtConfig = {
         '/cards/monitoring-items-overview',
         '/cards/positive-number-by-developed-date',
         '/cards/number-of-reports-to-tokyo-fever-consultation-center',
+        '/cards/deaths-by-death-date',
+        '/cards/variant',
+        '/cards/vaccination',
       ]
       const localizedPages = locales
         .map((locale) => pages.map((page) => `/${locale}${page}`))
         .reduce((a, b) => [...a, ...b], [])
       return [...pages, ...localizedPages]
+    },
+  },
+  /*
+   * PWA - Workbox configuration
+   * https://pwa.nuxtjs.org/workbox
+   */
+  pwa: {
+    workbox: {
+      enabled: false,
     },
   },
   // /*

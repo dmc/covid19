@@ -4,9 +4,7 @@
     aria-labelledby="pageHeader"
     aria-describedby="contactsCardTable"
   >
-    <page-header id="pageHeader" class="mb-3">
-      {{ $t('お問い合わせ先一覧') }}
-    </page-header>
+    <page-header id="pageHeader" :title="$t('お問い合わせ先一覧')" />
     <div class="Contacts-Card">
       <table
         id="contactsCardTable"
@@ -182,7 +180,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
 
 export default Vue.extend({
   components: {
@@ -191,6 +189,11 @@ export default Vue.extend({
   data() {
     return {
       pc: true,
+    }
+  },
+  head(): MetaInfo {
+    return {
+      title: this.$t('お問い合わせ先一覧') as string,
     }
   },
   computed: {
@@ -217,11 +220,6 @@ export default Vue.extend({
       this.pc = window.innerWidth > 768
     },
   },
-  head(): MetaInfo {
-    return {
-      title: this.$t('お問い合わせ先一覧') as string,
-    }
-  },
 })
 </script>
 
@@ -245,7 +243,7 @@ export default Vue.extend({
       }
 
       .importantContact {
-        font-weight: bold;
+        font-weight: 600;
         @include font-size(16, true);
       }
 
@@ -285,7 +283,7 @@ export default Vue.extend({
             height: auto;
 
             .content {
-              font-weight: bold;
+              font-weight: 600;
               border-bottom: none !important;
               padding-top: 12px;
               padding-bottom: 8px;
