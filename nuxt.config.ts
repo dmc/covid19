@@ -92,6 +92,7 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
+<<<<<<< HEAD
     [
       '@nuxt/typescript-build',
       {
@@ -105,6 +106,10 @@ const config: NuxtConfig = {
       },
     ],
     '@nuxtjs/google-analytics',
+=======
+    '@nuxt/typescript-build',
+//    '@nuxtjs/google-analytics',
+>>>>>>> deff0f833775eeb159b6993b24da4f8ceb1aaaaa
     '@nuxtjs/gtm',
     'nuxt-purgecss',
   ],
@@ -139,9 +144,9 @@ const config: NuxtConfig = {
       families: ['Roboto:100,300,400,500,700,900&display=swap'],
     },
   },
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // .env.production などに設定してください。
-  },
+  // googleAnalytics: {
+  //   id: process.env.GOOGLE_ANALYTICS_ID, // .env.production などに設定してください。
+  // },
   /*
    ** @nuxtjs/gtm config
    */
