@@ -92,7 +92,6 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-<<<<<<< HEAD
     [
       '@nuxt/typescript-build',
       {
@@ -106,10 +105,6 @@ const config: NuxtConfig = {
       },
     ],
     '@nuxtjs/google-analytics',
-=======
-    '@nuxt/typescript-build',
-//    '@nuxtjs/google-analytics',
->>>>>>> deff0f833775eeb159b6993b24da4f8ceb1aaaaa
     '@nuxtjs/gtm',
     'nuxt-purgecss',
   ],
