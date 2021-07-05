@@ -1,17 +1,29 @@
 {
+<<<<<<< HEAD
     "date": "2021\/6\/8 12:30",
+=======
+    "date": "2021\/7\/5 12:30",
+>>>>>>> b39d97753a47f0f022011541e071cb77024796a9
     "data": {
         "place": {
             "display": {
-                "@ja": "銀座",
-                "@en": "Ginza"
+                "@ja": "品川",
+                "@en": "Shinagawa"
             }
         },
+<<<<<<< HEAD
         "date": "2021-06-07",
         "data": [
             {
                 "reference_date": "2020-01-01",
                 "increase_rate": -63
+=======
+        "date": "2021-06-28",
+        "data": [
+            {
+                "reference_date": "2020-01-01",
+                "increase_rate": -55
+>>>>>>> b39d97753a47f0f022011541e071cb77024796a9
             }
         ]
     }
