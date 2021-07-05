@@ -1,13 +1,13 @@
 // To parse this data:
 //
-//   import { Convert, Variant } from "./file";
+//   import { Convert, Variants } from "./file";
 //
-//   const variant = Convert.toVariant(json);
+//   const variants = Convert.toVariants(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Variant {
+export interface Variants {
     date:     string;
     datasets: Dataset[];
 }
@@ -17,23 +17,16 @@ export interface Dataset {
     data:   Data;
 }
 
-/**
- * variantTestCount: 変異株PCR検査実施数
- *
- * variantPositiveCount: N501Y陽性例数
- *
- * n501YPositiveRate: N501Y陽性例構成割合
- *
- * n501YNegativeRate: N501Y非陽性例構成割合
- *
- * variantPcrRate: 変異株PCR検査実施割合
- */
 export interface Data {
-    variantTestCount:     number; // 変異株PCR検査実施数
-    variantPositiveCount: number; // N501Y陽性例数
-    n501YPositiveRate:    number; // N501Y陽性例構成割合
-    n501YNegativeRate:    number; // N501Y非陽性例構成割合
-    variantPcrRate:       number; // 変異株PCR検査実施割合
+    l452R:            L452R;
+    variantTestCount: number; // 変異株PCR検査実施数
+    variantPcrRate:   number; // 変異株PCR検査実施割合
+    negativeRate:     number; // 変異株非陽性例構成割合
+}
+
+export interface L452R {
+    positiveCount: number; // L452R陽性例数
+    positiveRate:  number; // L452R陽性例構成割合
 }
 
 export interface Period {
@@ -44,12 +37,12 @@ export interface Period {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toVariant(json: string): Variant {
-        return cast(JSON.parse(json), r("Variant"));
+    public static toVariants(json: string): Variants {
+        return cast(JSON.parse(json), r("Variants"));
     }
 
-    public static variantToJson(value: Variant): string {
-        return JSON.stringify(uncast(value, r("Variant")), null, 2);
+    public static variantsToJson(value: Variants): string {
+        return JSON.stringify(uncast(value, r("Variants")), null, 2);
     }
 }
 
@@ -186,7 +179,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Variant": o([
+    "Variants": o([
         { json: "date", js: "date", typ: "" },
         { json: "datasets", js: "datasets", typ: a(r("Dataset")) },
     ], false),
@@ -195,11 +188,14 @@ const typeMap: any = {
         { json: "data", js: "data", typ: r("Data") },
     ], false),
     "Data": o([
+        { json: "L452R", js: "l452R", typ: r("L452R") },
         { json: "variant_test_count", js: "variantTestCount", typ: 0 },
-        { json: "variant_positive_count", js: "variantPositiveCount", typ: 0 },
-        { json: "n501y_positive_rate", js: "n501YPositiveRate", typ: 3.14 },
-        { json: "n501y_negative_rate", js: "n501YNegativeRate", typ: 3.14 },
         { json: "variant_pcr_rate", js: "variantPcrRate", typ: 3.14 },
+        { json: "negative_rate", js: "negativeRate", typ: 3.14 },
+    ], false),
+    "L452R": o([
+        { json: "positive_count", js: "positiveCount", typ: 0 },
+        { json: "positive_rate", js: "positiveRate", typ: 3.14 },
     ], false),
     "Period": o([
         { json: "begin", js: "begin", typ: Date },
